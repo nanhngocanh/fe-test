@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ChartDataset } from 'chart.js';
 import { ResasService } from '../service/resas.service';
 
@@ -13,7 +14,7 @@ export class HomeComponent implements OnInit {
   lstPrefectures: any[] = [];
   checkedItem: any;
 
-  constructor(private resas: ResasService) {}
+  constructor(private resas: ResasService, private router: Router) {}
 
   ngOnInit(): void {
     this.getPrefectures();
@@ -30,6 +31,7 @@ export class HomeComponent implements OnInit {
   }
   getChartData(prefCode: number) {
     this.resas.getPopulation(prefCode).subscribe((res) => {
+      this.checkError(res);
       this.getChartLabels(res);
       res.result.data.forEach((element: any) => {
         const color = '#' + this.randomColor();
@@ -53,7 +55,7 @@ export class HomeComponent implements OnInit {
   }
   getPrefectures() {
     this.resas.getPrefectures().subscribe((res) => {
-      console.log(res);
+      this.checkError(res);
       this.lstPrefectures = res.result;
     });
   }
@@ -61,5 +63,10 @@ export class HomeComponent implements OnInit {
     this.chartData = [];
     this.checkedItem = data;
     this.getChartData(data.prefCode);
+  }
+  checkError(res: any) {
+    if (res.statusCode) {
+      this.router.navigate(['/' + res.statusCode]);
+    }
   }
 }

@@ -9,6 +9,9 @@ import { FormsModule } from '@angular/forms';
 import { CheckboxComponent } from './component/checkbox/checkbox.component';
 import { LineChartComponent } from './component/line-chart/line-chart.component';
 import { HomeComponent } from './home/home.component';
+import { Exception404Component } from './exception/exception404/exception404.component';
+import { Exception400Component } from './exception/exception400/exception400.component';
+import { Exception403Component } from './exception/exception403/exception403.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +19,9 @@ import { HomeComponent } from './home/home.component';
     CheckboxComponent,
     LineChartComponent,
     HomeComponent,
+    Exception404Component,
+    Exception400Component,
+    Exception403Component,
   ],
   imports: [
     BrowserModule,
