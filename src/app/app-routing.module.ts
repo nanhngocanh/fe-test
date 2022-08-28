@@ -18,13 +18,14 @@ const routes: Routes = [
     path: '400',
     component: Exception400Component,
   },
-  {
-    path: '**',
-    component: Exception404Component,
-  },
+
   {
     path: '',
     component: HomeComponent,
+  },
+  {
+    path: '**',
+    component: Exception404Component,
   },
 ];
 
