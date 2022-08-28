@@ -4,7 +4,6 @@ export class AppSetting {
   public static API_ENDPOINT = 'https://opendata.resas-portal.go.jp';
   public static httpOptions = {
     headers: new HttpHeaders({
-      'Content-Type': 'application/json',
       'X-API-KEY': 't3JcWaKOOpj8ZsEhoNUkBuMVVWzASh9u0FdEKFPF',
     }),
   };
