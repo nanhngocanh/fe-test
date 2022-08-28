@@ -4,7 +4,7 @@
 }
 
 .chart {
-  width: 70%;
+  width: 50%;
 }
 
 .title {
@@ -15,4 +15,15 @@
   display: flex;
   justify-content: center;
   padding-top: 1em;
+}
+
+@media only screen and (max-width: 600px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .chart {
+    width: 100%;
+  }
 }
