@@ -1,16 +1,22 @@
-<div *ngIf="lstPrefectures.length > 0" class="col">
-  <p>都道府県</p>
-  <app-checkbox
-    [lstData]="lstPrefectures"
-    [labelField]="'prefName'"
-    (check)="getCheckedItem($event)"
-  ></app-checkbox>
-</div>
+<div class="container">
+  <div class="col">
+    <div *ngIf="lstPrefectures.length > 0">
+      <h2 class="title">都道府県</h2>
+      <app-checkbox
+        [lstData]="lstPrefectures"
+        [labelField]="'prefName'"
+        (check)="getCheckedItem($event)"
+      ></app-checkbox>
+    </div>
+  </div>
 
-<div *ngIf="chartData.length > 0 && chartLabels.length > 0" class="col">
-  <app-line-chart
-    [lineChartData]="chartData"
-    [lineChartLabels]="chartLabels"
-  ></app-line-chart>
-  <p>{{ checkedItem.prefName }}の人口マップ</p>
+  <div class="col chart">
+    <div *ngIf="chartData.length > 0 && chartLabels.length > 0">
+      <app-line-chart
+        [lineChartData]="chartData"
+        [lineChartLabels]="chartLabels"
+      ></app-line-chart>
+      <h2 class="title">{{ checkedItem.prefName }}の人口マップ</h2>
+    </div>
+  </div>
 </div>

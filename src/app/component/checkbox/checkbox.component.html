@@ -1,11 +1,27 @@
 <ng-container *ngIf="lstData">
-  <div *ngFor="let item of lstData; let i = index">
-    <input
-      type="checkbox"
-      (click)="selectItem(item, lstValue[i])"
-      [(ngModel)]="lstValue[i]"
-    />
-    <label for="">{{ item[labelField] }}</label>
+  <div class="col">
+    <div *ngFor="let item of lstData; let i = index">
+      <ng-container *ngIf="i % 2 == 0">
+        <input
+          type="checkbox"
+          (click)="selectItem(item, lstValue[i])"
+          [(ngModel)]="lstValue[i]"
+        />
+        <label for="">{{ item[labelField] }}</label>
+      </ng-container>
+    </div>
+  </div>
+  <div class="col">
+    <div *ngFor="let item of lstData; let i = index">
+      <ng-container *ngIf="i % 2 != 0">
+        <input
+          type="checkbox"
+          (click)="selectItem(item, lstValue[i])"
+          [(ngModel)]="lstValue[i]"
+        />
+        <label for="">{{ item[labelField] }}</label>
+      </ng-container>
+    </div>
   </div>
 </ng-container>
 

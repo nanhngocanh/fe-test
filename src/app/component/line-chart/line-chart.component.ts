@@ -14,8 +14,9 @@ export class LineChartComponent {
     layout: {
       padding: 30,
     },
+    maintainAspectRatio: true,
   };
   lineChartType: ChartType = 'line';
   lineChartLegend = true;
-  lineChartPlugins: any[] = [];
+  lineChartPlugins = [];
 }
